@@ -1,5 +1,6 @@
 package com.fh.shop.controller;
 
+import com.fh.shop.entity.po.Peoperty;
 import com.fh.shop.entity.vo.ResultData;
 import com.fh.shop.service.PeopertyService;
 
@@ -22,4 +23,10 @@ public ResultData delete(Integer id){
     peopertyService.delete(id);
     return  ResultData.success("");
 }
+    //http://localhost:8080/api/peoperty/addPeoperty
+   @PostMapping("addPeoperty")
+    public ResultData  addPeoperty(Peoperty peoperty){
+       peopertyService.addPeoperty(peoperty);
+        return ResultData.success("");
+   }
 }
