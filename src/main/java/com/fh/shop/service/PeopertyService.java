@@ -6,4 +6,6 @@ public interface PeopertyService {
     void delete(Integer id);
 
     void addPeoperty(Peoperty peoperty);
+
+    void updateById(Peoperty peoperty);
 }

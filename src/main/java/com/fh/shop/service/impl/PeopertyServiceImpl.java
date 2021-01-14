@@ -23,4 +23,10 @@ public class PeopertyServiceImpl implements PeopertyService {
         peoperty.setIsDel(0);
         peopertyDao.addPeoperty(peoperty);
     }
+
+    @Override
+    public void updateById(Peoperty peoperty) {
+        peoperty.setUpdateDate(new Date());
+        peopertyDao.updateById(peoperty);
+    }
 }

@@ -29,4 +29,9 @@ public ResultData delete(Integer id){
        peopertyService.addPeoperty(peoperty);
         return ResultData.success("");
    }
+   @PostMapping("updateById")
+    public ResultData updateById(Peoperty peoperty){
+       peopertyService.updateById(peoperty);
+        return ResultData.success("");
+   }
 }
