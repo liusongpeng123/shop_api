@@ -2,11 +2,14 @@ package com.fh.shop.service.impl;
 
 import com.fh.shop.dao.PeopertyDao;
 import com.fh.shop.entity.po.Peoperty;
+import com.fh.shop.entity.vo.PageResult;
+import com.fh.shop.entity.vo.PeopertyParams;
 import com.fh.shop.service.PeopertyService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class PeopertyServiceImpl implements PeopertyService {
@@ -28,5 +31,14 @@ public class PeopertyServiceImpl implements PeopertyService {
     public void updateById(Peoperty peoperty) {
         peoperty.setUpdateDate(new Date());
         peopertyDao.updateById(peoperty);
+    }
+
+    @Override
+    public PageResult<Peoperty> queryPeopertyData(PeopertyParams params) {
+        Long count=peopertyDao.queryCount(params);
+        params.setStartIndex((params.getPage()-1)*params.getLimit());
+       List<Peoperty>list= peopertyDao.queryPeopertyData(params);
+        PageResult<Peoperty>peo=new PageResult<>(count,list);
+        return peo;
     }
 }

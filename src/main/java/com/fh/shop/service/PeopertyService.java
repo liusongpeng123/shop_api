@@ -1,6 +1,8 @@
 package com.fh.shop.service;
 
 import com.fh.shop.entity.po.Peoperty;
+import com.fh.shop.entity.vo.PageResult;
+import com.fh.shop.entity.vo.PeopertyParams;
 
 public interface PeopertyService {
     void delete(Integer id);
@@ -8,4 +10,6 @@ public interface PeopertyService {
     void addPeoperty(Peoperty peoperty);
 
     void updateById(Peoperty peoperty);
+
+    PageResult<Peoperty> queryPeopertyData(PeopertyParams params);
 }
