@@ -23,7 +23,7 @@ public interface PeopertyDao {
 
             "<if test='isSku!= null'>,isSku= #{isSku}</if>"+
             "where id=#{id} </script>")
-    void updateById(Peoperty peoperty);
+    void updatePeoperty(Peoperty peoperty);
     @Select("<script>select count(1) from t_peoperty where 1=1 and isDel=0" +
             "<if test='peopertyId!=null'> and peopertyId=#{peopertyId} </if>"+
             "<if test='peopertyName!=null and peopertyName!=&quot;&quot;'> and peopertyName=#{peopertyName} </if>"+
@@ -34,4 +34,6 @@ public interface PeopertyDao {
             "<if test='peopertyName!=null and peopertyName!=&quot;&quot;'> and peopertyName=#{peopertyName} </if>"+
             "limit #{startIndex},#{limit} </script>")
     List<Peoperty> queryPeopertyData(PeopertyParams params);
+    @Select("select * from t_peoperty where isDel=0,id=#{id}")
+    Peoperty queryPeopertyById(Integer id);
 }

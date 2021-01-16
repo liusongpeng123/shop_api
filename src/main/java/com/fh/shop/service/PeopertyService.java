@@ -9,7 +9,9 @@ public interface PeopertyService {
 
     void addPeoperty(Peoperty peoperty);
 
-    void updateById(Peoperty peoperty);
+    void updatePeoperty(Peoperty peoperty);
 
     PageResult<Peoperty> queryPeopertyData(PeopertyParams params);
+
+    Peoperty queryPeopertyById(Integer id);
 }

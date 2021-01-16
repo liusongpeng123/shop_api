@@ -28,9 +28,9 @@ public class PeopertyServiceImpl implements PeopertyService {
     }
 
     @Override
-    public void updateById(Peoperty peoperty) {
+    public void updatePeoperty(Peoperty peoperty) {
         peoperty.setUpdateDate(new Date());
-        peopertyDao.updateById(peoperty);
+        peopertyDao.updatePeoperty(peoperty);
     }
 
     @Override
@@ -40,5 +40,11 @@ public class PeopertyServiceImpl implements PeopertyService {
        List<Peoperty>list= peopertyDao.queryPeopertyData(params);
         PageResult<Peoperty>peo=new PageResult<>(count,list);
         return peo;
+    }
+
+    @Override
+    public Peoperty queryPeopertyById(Integer id) {
+
+        return peopertyDao.queryPeopertyById(id);
     }
 }
