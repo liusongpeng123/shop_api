@@ -5,9 +5,13 @@ import com.fh.shop.entity.vo.BrandParams;
 import com.fh.shop.entity.vo.PageResult;
 import com.fh.shop.entity.vo.ResultData;
 import com.fh.shop.service.BrandService;
+import com.fh.shop.utils.UploadDown;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -15,6 +19,8 @@ import javax.annotation.Resource;
 public class BrandController {
     @Resource
     private BrandService brandService;
+    @Resource
+    HttpServletRequest request;
     //http://localhost:8080/api/brand/delete
     @PostMapping("delete")
     public ResultData delete(Integer id){
@@ -47,7 +53,12 @@ public class BrandController {
         PageResult<Brand> rs= brandService.queryData(params);
         return rs;
     }
+    @PostMapping("upload")
+    public ResultData upload(MultipartFile img){
 
-
-
+        Map<String, String> map = UploadDown.upload(img,request, "imgFiles");
+        String path=map.get("filePath");
+        String pa="http://localhost:8080/"+path;
+        return ResultData.success(pa);
+    }
 }
