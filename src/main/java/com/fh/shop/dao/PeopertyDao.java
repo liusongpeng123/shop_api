@@ -15,7 +15,7 @@ public interface PeopertyDao {
     @Insert("insert into t_peoperty (peopertyId,peopertyName,typeId,peopertyType,isSku,isDel,createDate) value (#{peopertyId},#{peopertyName},#{typeId},#{peopertyType},#{isSku},#{isDel},#{createDate})")
     void addPeoperty(Peoperty peoperty);
     @Update("<script>update t_peoperty set updateDate=#{updateDate}" +
-            "<if test='peopertyId!= null'>,peopertyId= #{peopertyId}</if>"+
+            "<if test='peopertyId!= null and peopertyId!= &quot;&quot;'>,peopertyId= #{peopertyId}</if>"+
             "<if test='peopertyName!= null and peopertyName != &quot;&quot;'>,peopertyName= #{peopertyName}</if>"+
 
             "<if test='typeId!= null'>,typeId= #{typeId}</if>"+
@@ -34,6 +34,7 @@ public interface PeopertyDao {
             "<if test='peopertyName!=null and peopertyName!=&quot;&quot;'> and peopertyName=#{peopertyName} </if>"+
             "limit #{startIndex},#{limit} </script>")
     List<Peoperty> queryPeopertyData(PeopertyParams params);
-    @Select("select * from t_peoperty where isDel=0,id=#{id}")
+
+    @Select("select * from t_peoperty where isDel=0 and id=#{id}")
     Peoperty queryPeopertyById(Integer id);
 }

@@ -16,6 +16,7 @@ public interface BrandDao {
     Integer add(Brand brand);
     @Update("<script>update t_brand set updateDate=#{updateDate}" +
             "<if test='name != null and name != &quot;&quot;'>,name=#{name}</if>" +
+            "<if test='bandE != null and bandE != &quot;&quot;'>,bandE=#{bandE}</if>" +
             "<if test='imgpath != null and imgpath != &quot;&quot;'>,imgpath= #{imgpath}</if>" +
             "<if test='bandDesc != null and bandDesc != &quot;&quot;'>,bandDesc=#{bandDesc}</if>" +
             "<if test='ord!= null and ord != &quot;&quot;'>,ord= #{ord}</if>" +

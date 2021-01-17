@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Peoperty {
     private Integer id;
-    private Integer peopertyId;
+    private String peopertyId;
     private String peopertyName;
     private Integer typeId;
     private Integer peopertyType;
@@ -26,11 +26,11 @@ public class Peoperty {
         this.id = id;
     }
 
-    public Integer getPeopertyId() {
+    public String getPeopertyId() {
         return peopertyId;
     }
 
-    public void setPeopertyId(Integer peopertyId) {
+    public void setPeopertyId(String peopertyId) {
         this.peopertyId = peopertyId;
     }
 
