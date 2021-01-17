@@ -1,13 +1,12 @@
 package com.fh.shop.controller;
 
+import com.fh.shop.entity.po.PeopertyValue;
 import com.fh.shop.entity.vo.ResultData;
 import com.fh.shop.service.PeopertyValueService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -21,5 +20,24 @@ public class PeopertyValueController {
     peopertyValueService.deletePeopertyValue(id);
     return ResultData.success("");
 }
-
+@GetMapping("quertyPeopertyValueById")
+    public ResultData quertyPeopertyValueById(Integer id){
+    PeopertyValue peopertyValue  =peopertyValueService.quertyPeopertyValueById(id);
+    return  ResultData.success(peopertyValue);
+}
+@PostMapping("updatePeopertyValue")
+    public ResultData updatePeopertyValue(PeopertyValue peopertyValue){
+    peopertyValueService.updatePeopertyValue(peopertyValue);
+    return ResultData.success("");
+}
+@PostMapping("addPeopertyValue")
+   public ResultData addPeopertyValue(PeopertyValue peopertyValue){
+    peopertyValueService.addPeopertyValue(peopertyValue);
+    return ResultData.success("");
+}
+@GetMapping("queryByPeoId")
+    public List<PeopertyValue> queryByPeoId(Integer peoId){
+    List<PeopertyValue> list=   peopertyValueService.queryByPeoId(peoId);
+    return list;
+}
 }
