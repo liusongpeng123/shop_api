@@ -14,6 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -74,5 +75,10 @@ public class BrandController {
         newName="imgs/"+newName;
         return ResultData.success(OssFileUtils.uploadFile(img.getInputStream(),newName));
     }
-
+    //http://localhost:8080/api/brand/queryAllBrandData
+@GetMapping("queryAllBrandData")
+    public List<Brand> queryAllBrandData(){
+    List<Brand> list=  brandService.queryAllBrandData();
+    return  list;
+}
 }

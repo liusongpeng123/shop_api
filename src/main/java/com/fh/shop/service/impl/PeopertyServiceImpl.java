@@ -47,4 +47,9 @@ public class PeopertyServiceImpl implements PeopertyService {
 
         return peopertyDao.queryPeopertyById(id);
     }
+
+    @Override
+    public List<Peoperty> queryPeopertyByTypeId(Integer typeId) {
+        return peopertyDao.queryPeopertyByTypeId(typeId);
+    }
 }

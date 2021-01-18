@@ -35,4 +35,6 @@ public interface BrandDao {
             "<if test='name!=null and name!=&quot;&quot;'> and name=#{name}</if>" +
             " limit #{startIndex},#{limit} </script>")
     List<Brand> queryData(BrandParams params);
+@Select("select * from t_brand where isDel=0")
+    List<Brand> queryAllBrandData();
 }

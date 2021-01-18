@@ -26,6 +26,11 @@ public class BrandServiceImpl implements BrandService {
         brand.setIsdel(0);
      brandDao.add(brand);
     }
+
+    @Override
+    public List<Brand> queryAllBrandData() {
+        return brandDao.queryAllBrandData();
+    }
 //
 
 

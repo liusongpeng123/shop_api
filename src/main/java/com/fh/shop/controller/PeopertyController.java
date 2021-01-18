@@ -9,6 +9,8 @@ import com.fh.shop.service.PeopertyService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/peoperty/")
@@ -60,5 +62,14 @@ public ResultData delete(Integer id){
     public PageResult<Peoperty>queryPeopertyData(PeopertyParams params){
        PageResult<Peoperty> peo=peopertyService.queryPeopertyData(params);
        return peo;
+   }
+    //路径：http://localhost:8080/api/peoperty/queryPeopertyByTypeId
+    //参数:
+    //返回值
+    //请求方式：get
+   @GetMapping("queryPeopertyByTypeId")
+    public List<Peoperty>queryPeopertyByTypeId(Integer typeId){
+       List<Peoperty>list= peopertyService.queryPeopertyByTypeId(typeId);
+       return list;
    }
 }

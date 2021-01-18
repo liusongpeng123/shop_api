@@ -37,4 +37,6 @@ public interface PeopertyDao {
 
     @Select("select * from t_peoperty where isDel=0 and id=#{id}")
     Peoperty queryPeopertyById(Integer id);
+@Select("select * from t_peoperty where isDel=0 and typeId=#{typeId}")
+    List<Peoperty> queryPeopertyByTypeId(Integer typeId);
 }

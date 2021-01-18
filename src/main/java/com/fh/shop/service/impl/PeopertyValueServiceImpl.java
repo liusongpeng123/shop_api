@@ -30,7 +30,7 @@ public class PeopertyValueServiceImpl implements PeopertyValueService {
 
     @Override
     public void addPeopertyValue(PeopertyValue peopertyValue) {
-
+        peopertyValue.setIsDel(0);
         peopertyValueDao.addPeopertyValues(peopertyValue);
     }
 

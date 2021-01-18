@@ -4,6 +4,8 @@ import com.fh.shop.entity.po.Peoperty;
 import com.fh.shop.entity.vo.PageResult;
 import com.fh.shop.entity.vo.PeopertyParams;
 
+import java.util.List;
+
 public interface PeopertyService {
     void delete(Integer id);
 
@@ -14,4 +16,6 @@ public interface PeopertyService {
     PageResult<Peoperty> queryPeopertyData(PeopertyParams params);
 
     Peoperty queryPeopertyById(Integer id);
+
+    List<Peoperty> queryPeopertyByTypeId(Integer typeId);
 }

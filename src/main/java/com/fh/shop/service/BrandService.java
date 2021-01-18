@@ -4,6 +4,8 @@ import com.fh.shop.entity.po.Brand;
 import com.fh.shop.entity.vo.BrandParams;
 import com.fh.shop.entity.vo.PageResult;
 
+import java.util.List;
+
 public interface BrandService {
     void delete(Integer id);
 
@@ -16,4 +18,6 @@ public interface BrandService {
     PageResult<Brand> queryData(BrandParams params);
 
     void add(Brand brand);
+
+    List<Brand> queryAllBrandData();
 }
