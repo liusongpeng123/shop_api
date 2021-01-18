@@ -30,6 +30,7 @@ public class PeopertyValueServiceImpl implements PeopertyValueService {
 
     @Override
     public void addPeopertyValue(PeopertyValue peopertyValue) {
+
         peopertyValueDao.addPeopertyValues(peopertyValue);
     }
 

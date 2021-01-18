@@ -19,7 +19,7 @@ public class PeopertyValueController {
     public ResultData deletePeopertyValue(Integer id){
     peopertyValueService.deletePeopertyValue(id);
     return ResultData.success("");
-}
+}//http://localhost:8080/api/peopertyValue/quertyPeopertyValueById
 @GetMapping("quertyPeopertyValueById")
     public ResultData quertyPeopertyValueById(Integer id){
     PeopertyValue peopertyValue  =peopertyValueService.quertyPeopertyValueById(id);
@@ -35,6 +35,7 @@ public class PeopertyValueController {
     peopertyValueService.addPeopertyValue(peopertyValue);
     return ResultData.success("");
 }
+    //http://localhost:8080/api/peopertyValue/queryByPeoId
 @GetMapping("queryByPeoId")
     public List<PeopertyValue> queryByPeoId(Integer peoId){
     List<PeopertyValue> list=   peopertyValueService.queryByPeoId(peoId);
