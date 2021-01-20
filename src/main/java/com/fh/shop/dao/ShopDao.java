@@ -1,13 +1,17 @@
 package com.fh.shop.dao;
 
 import com.fh.shop.entity.po.Shop;
+import com.fh.shop.entity.vo.ShopParams;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 public interface ShopDao {
     @Insert("insert into t_shop (name,title,brandId,productdecs,price,stocks,sortNum,peopertyId,imgpath,createDate,isDel,author) value (#{name},#{title},#{brandId},#{productdecs},#{price},#{stocks},#{sortNum},#{peopertyId},#{imgpath},#{createDate},#{isDel},#{author})")
-    void addShop(Shop shop);
+    Integer addShop(Shop shop);
     @Delete("update t_shop set isDel=1 where id=#{id}")
     void deleteShop(Integer id);
     @Update("<script>update t_shop set updateDate=#{updateDate}" +
@@ -23,4 +27,12 @@ public interface ShopDao {
             "<if test='author!=null and  author != &quot;&quot;'>,author=#{author}</if>"+
             "where id=#{id} </script>")
     void updateShop(Shop shop);
+    @Select("<script> select count(1) from t_shop where 1=1 " +
+            "<if test='name!=null and name!=&quot;&quot;'> and name=#{name}</if>"+
+            "</script>")
+    Long queryShopCount(ShopParams params);
+    @Select("<script> select * from t_shop where 1=1 " +
+            "<if test='name!=null and name!=&quot;&quot;'> and name=#{name}</if>"+
+            "limit #{startIndex},#{limit} </script>")
+    List<Shop> quertyShopData(ShopParams params);
 }
