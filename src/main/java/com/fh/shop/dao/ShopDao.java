@@ -2,16 +2,14 @@ package com.fh.shop.dao;
 
 import com.fh.shop.entity.po.Shop;
 import com.fh.shop.entity.vo.ShopParams;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface ShopDao {
     @Insert("insert into t_shop (name,title,brandId,productdecs,price,stocks,sortNum,peopertyId,imgpath,createDate,isDel,author) value (#{name},#{title},#{brandId},#{productdecs},#{price},#{stocks},#{sortNum},#{peopertyId},#{imgpath},#{createDate},#{isDel},#{author})")
-    Integer addShop(Shop shop);
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    void addShop(Shop shop);
     @Delete("update t_shop set isDel=1 where id=#{id}")
     void deleteShop(Integer id);
     @Update("<script>update t_shop set updateDate=#{updateDate}" +

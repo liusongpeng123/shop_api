@@ -6,9 +6,15 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface ShopProductDao {
     @Insert("insert into t_shopProduct (proId,attrData,stockss,prices) value (#{proId},#{attrData},#{stockss},#{prices})")
     void addShopProduct(ShopProduct shopProduct);
+    @Insert("<script>insert into t_shopProduct (proId,attrData,stockss,prices) values" +
+            "<foreach collection='list' item='a' separator=','>(#{a.proId},#{a.attrData},#{a.stockss},#{a.prices})"+
+            " </foreach> </script>")
+    void addDouble(List<ShopProduct> list);
     @Update("update t_shopProduct set proId=#{proId},attrData=#{attrData},stockss=#{stockss},prices=#{prices} where id=#{id}")
     void updateShopProduct(ShopProduct shopProduct);
     @Select("select * from t_shopProduct where id=#{id}")

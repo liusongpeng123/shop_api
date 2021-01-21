@@ -20,9 +20,9 @@ public class ShopController {
     //参数:
     //返回值
     //请求方式：post
-    public ResultData  addShop(Shop shop){
-     Integer id=   shopService.addShop(shop);
-        return ResultData.success("id");
+    public ResultData  addShop(Shop shop,String attr,String sku){
+     shopService.addShop(shop,attr,sku);
+        return ResultData.success("");
     }
     //路径：http://localhost:8080/api/shop/deleteShop
     //参数:?limit=2&page=1

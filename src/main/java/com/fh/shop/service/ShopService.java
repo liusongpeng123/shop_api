@@ -11,7 +11,7 @@ public interface ShopService {
 
     void updateShop(Shop shop);
 
-    Integer addShop(Shop shop);
+    void addShop(Shop shop,String attr,String sku);
 
     PageResult<Shop> quertyShopData(ShopParams params);
 }

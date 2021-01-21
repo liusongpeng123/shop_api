@@ -16,11 +16,11 @@ public class ShopProductController {
     //参数:
     //返回值
     //请求方式：post
-    @PostMapping("addShopProduct")
+/*    @PostMapping("addShopProduct")
     public ResultData addShopProduct(ShopProduct shopProduct){
         shopProductService.addShopProduct(shopProduct);
         return ResultData.success("");
-    }
+    }*/
     //路径：http://localhost:8080/api/shopProduct/updateShopProduct
     //参数:
     //返回值

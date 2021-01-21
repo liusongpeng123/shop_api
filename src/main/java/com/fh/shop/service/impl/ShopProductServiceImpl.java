@@ -11,10 +11,10 @@ import javax.annotation.Resource;
 public class ShopProductServiceImpl implements ShopProductService {
     @Resource
     private ShopProductDao shopProductDao;
-    @Override
+  /*  @Override
     public void addShopProduct(ShopProduct shopProduct) {
         shopProductDao.addShopProduct(shopProduct);
-    }
+    }*/
 
     @Override
     public void updateShopProduct(ShopProduct shopProduct) {
