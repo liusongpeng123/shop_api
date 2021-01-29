@@ -16,4 +16,6 @@ public interface TypeService {
     Integer add(Type type);
 
     void deleteTypeById(Integer id);
+
+    Type queryById(Integer id);
 }

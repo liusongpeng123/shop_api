@@ -14,4 +14,6 @@ public interface ShopService {
     void addShop(Shop shop,String attr,String sku);
 
     PageResult<Shop> quertyShopData(ShopParams params);
+
+    Shop quertyShopById(Integer id);
 }

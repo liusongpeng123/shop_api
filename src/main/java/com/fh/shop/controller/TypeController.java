@@ -19,6 +19,7 @@ public class TypeController {
         List<Type> type = typeService.queryTypeData();
         return ResultData.success(type);
     }
+    //http:localhost:8080/api/type/getDataByPid?pid=
     @PostMapping("getDataByPid")
     public ResultData getDataByPid(Integer pid){
         List<Type> type=typeService.queryDataByPid(pid);
@@ -38,5 +39,10 @@ public class TypeController {
     public ResultData deleteTypeById(Integer id){
     typeService.deleteTypeById(id);
 return ResultData.success("");
+}
+@GetMapping("queryById")
+    public Type queryById(Integer id){
+    Type type=  typeService.queryById(id);
+    return type;
 }
 }

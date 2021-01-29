@@ -18,4 +18,7 @@ public interface PeopertyService {
     Peoperty queryPeopertyById(Integer id);
 
     List<Peoperty> queryPeopertyByTypeId(Integer typeId);
+
+
+    Object queryAllByTypeId(Integer typeId);
 }

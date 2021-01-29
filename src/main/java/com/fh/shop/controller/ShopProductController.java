@@ -6,6 +6,9 @@ import com.fh.shop.service.ShopProductService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
+
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/shopProduct")
@@ -33,7 +36,7 @@ public class ShopProductController {
     //路径：http://localhost:8080/api/shopProduct/queryShopProductById
     //参数:id
     //返回值
-    //请求方式：post
+    //请求方式：get
     @GetMapping("queryShopProductById")
     public ShopProduct queryShopProductById(Integer id){
         ShopProduct shopProduct=shopProductService.queryShopProductById(id);
@@ -48,5 +51,13 @@ public class ShopProductController {
         shopProductService.deleteShopProduct(id);
         return ResultData.success("");
     }
-
+    //路径：http://localhost:8080/api/shopProduct/queryShopProductByProId
+    //参数:id
+    //返回值
+    //请求方式：get
+@GetMapping("queryShopProductByProId")
+    public List<ShopProduct> queryShopProductByProId(Integer proId){
+    List<ShopProduct>list= shopProductService.queryShopProductByProId(proId);
+    return  list;
+}
 }

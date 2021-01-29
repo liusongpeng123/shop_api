@@ -2,6 +2,8 @@ package com.fh.shop.service;
 
 import com.fh.shop.entity.po.ShopProduct;
 
+import java.util.List;
+
 public interface ShopProductService {
    /* void addShopProduct(ShopProduct shopProduct);*/
 
@@ -10,4 +12,7 @@ public interface ShopProductService {
     ShopProduct queryShopProductById(Integer id);
 
     void deleteShopProduct(Integer id);
+
+    List<ShopProduct> queryShopProductByProId(Integer proId);
+
 }

@@ -25,12 +25,14 @@ public interface ShopDao {
             "<if test='author!=null and  author != &quot;&quot;'>,author=#{author}</if>"+
             "where id=#{id} </script>")
     void updateShop(Shop shop);
-    @Select("<script> select count(1) from t_shop where 1=1 " +
+    @Select("<script> select count(1) from t_shop where 1=1 and isDel=0 " +
             "<if test='name!=null and name!=&quot;&quot;'> and name=#{name}</if>"+
-            "</script>")
+            " </script>")
     Long queryShopCount(ShopParams params);
-    @Select("<script> select * from t_shop where 1=1 " +
+    @Select("<script> select * from t_shop  where 1=1 and isDel=0 " +
             "<if test='name!=null and name!=&quot;&quot;'> and name=#{name}</if>"+
-            "limit #{startIndex},#{limit} </script>")
+            " order by id desc  limit #{startIndex},#{limit} </script>")
     List<Shop> quertyShopData(ShopParams params);
+    @Select("select * from t_shop where id=#{id}")
+    Shop quertyShopById(Integer id);
 }

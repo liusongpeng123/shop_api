@@ -72,4 +72,13 @@ public ResultData delete(Integer id){
        List<Peoperty>list= peopertyService.queryPeopertyByTypeId(typeId);
        return list;
    }
+    //路径：http://localhost:8080/api/peoperty/queryAllByTypeId
+    //参数:
+    //返回值
+    //请求方式：get
+    @GetMapping("queryAllByTypeId")
+    public ResultData queryAllByTypeId(Integer typeId){
+
+        return ResultData.success(peopertyService.queryAllByTypeId(typeId));
+    }
 }

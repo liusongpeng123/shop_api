@@ -25,7 +25,7 @@ public class ShopController {
         return ResultData.success("");
     }
     //路径：http://localhost:8080/api/shop/deleteShop
-    //参数:?limit=2&page=1
+    //参数:
     //返回值
     //请求方式：delete
     @DeleteMapping("deleteShop")
@@ -34,7 +34,7 @@ public class ShopController {
         return ResultData.success("");
     }
     //路径：http://localhost:8080/api/shop/updateShop
-    //参数:?limit=2&page=1
+    //参数:
     //返回值
     //请求方式：post
     @PostMapping("updateShop")
@@ -51,5 +51,14 @@ public class ShopController {
     public PageResult<Shop> quertyShopData(ShopParams params){
       PageResult<Shop>shop=  shopService.quertyShopData(params);
       return shop;
+    }
+    //路径：http://localhost:8080/api/shop/quertyShopById
+    //参数:
+    //返回值
+    //请求方式：get
+    @GetMapping("quertyShopById")
+    public Shop quertyShopById(Integer id){
+        Shop shop=  shopService.quertyShopById(id);
+        return shop;
     }
 }

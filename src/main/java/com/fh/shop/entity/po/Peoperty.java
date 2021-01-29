@@ -3,6 +3,7 @@ package com.fh.shop.entity.po;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 public class Peoperty {
     private Integer id;
@@ -17,6 +18,15 @@ public class Peoperty {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updateDate;
     private String author;
+    private List<PeopertyValue> values;
+
+    public List<PeopertyValue> getValues() {
+        return values;
+    }
+
+    public void setValues(List<PeopertyValue> values) {
+        this.values = values;
+    }
 
     public Integer getId() {
         return id;

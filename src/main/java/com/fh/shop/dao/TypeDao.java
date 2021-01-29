@@ -23,4 +23,6 @@ public interface TypeDao {
     Integer add(Type type);
 @Delete("update t_type set isDel=1 where id=#{id}")
     void deleteTypeById(Integer id);
+@Select("select * from t_type where id=#{id}")
+    Type queryById(Integer id);
 }

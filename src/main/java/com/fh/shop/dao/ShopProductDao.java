@@ -21,4 +21,6 @@ public interface ShopProductDao {
     ShopProduct queryShopProductById(Integer id);
     @Delete("delete from t_shopProduct where id=#{id}")
     void deleteShopProduct(Integer id);
+    @Select("select * from t_shopProduct where proId=#{proId}")
+    List<ShopProduct> queryShopProductByProId(Integer proId);
 }

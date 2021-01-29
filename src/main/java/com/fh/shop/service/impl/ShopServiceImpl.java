@@ -80,4 +80,9 @@ public class ShopServiceImpl implements ShopService {
         PageResult<Shop>shop=new PageResult<>(count,list);
         return shop;
     }
+
+    @Override
+    public Shop quertyShopById(Integer id) {
+        return shopDao.quertyShopById(id);
+    }
 }

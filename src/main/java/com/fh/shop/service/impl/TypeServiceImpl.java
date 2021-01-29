@@ -41,4 +41,9 @@ public class TypeServiceImpl implements TypeService {
 
         typeDao.deleteTypeById(id);
     }
+
+    @Override
+    public Type queryById(Integer id) {
+        return typeDao.queryById(id);
+    }
 }

@@ -38,4 +38,5 @@ public class PeopertyValueServiceImpl implements PeopertyValueService {
     public List<PeopertyValue> queryByPeoId(Integer peoId) {
         return peopertyValueDao.queryByPeoId(peoId);
     }
+
 }
