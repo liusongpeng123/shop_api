@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 public interface PermissionDao {
-    @Select("select * from t_permission where id=#{id}")
+    @Select("select * from t_permission where isDel=0 and  id=#{id}")
     Permission queryPermissionById(Integer id);
     @Delete("update t_permission set isDel=1 where id=#{id}")
     void deleteById(Integer id);
@@ -23,6 +23,6 @@ public interface PermissionDao {
             " <if test='type != null and type != &quot;&quot;'>  , type  = #{type}</if>" +
             "where id=#{id} </script>")
     void updatePermission(Permission permission);
-    @Select("select * from t_permission")
+    @Select("select * from t_permission where isDel=0 ")
     List<Permission> queryPermission();
 }
